@@ -29,6 +29,8 @@
 \usepackage[
     starfontserif % comment for sans glyphs
 ]{starfont}
+\usepackage{manfnt}
+\usepackage{esint}
 
 \subimport{\import_path}{preamble}
 \subimport{\import_path}{macros}
@@ -65,7 +67,17 @@
 \newcommand{\diff}[1]{d_{#1}}
 \newcommand{\pdiff}[1]{\partial_{#1}}
 
+%Circular labels
 \newcommand{\circlab}[1]{{\large\protect\textcircled{\small #1}}}
+
+%Math stuff
+\newcommand{\qvec}[1]{\ensuremath{\vec{#1}(t)}}
+\newcommand{\vnorm}[1]{\ensuremath{\left|\left|\vec{#1}\right|\right|}}
+\newcommand{\nnorm}[1]{\ensuremath{\left|\left|#1\right|\right|}}
+\newcommand{\diverg}[1]{\ensuremath{\text{div}\vec{#1}}}
+\newcommand{\curl}[1]{\ensuremath{\text{curl}\vec{#1}}}
+\newcommand{\vfield}[4]{\ensuremath{\ifstrempty{#4}{\vec{#1}(#2)=\<{#3}}{\vec{#1}(#2)=#4\<{#3}}}}
+
 \newcommand{\Real}[1]{\ensuremath{\text{Re}\left(#1\right)}}
 \newcommand{\Ima}[1]{\ensuremath{\text{Im}\left(#1\right)}}
 \newcommand{\Lagr}[1]{\ensuremath{\ifstrempty{#1}{\mathcal{L}}{\mathcal{L}\left[#1\right]}}}
@@ -75,7 +87,7 @@
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 \newcommand{\com}[2]{\left[\hat{#1},\hat{#2}\right]}
 
-% Stuff for physics assignment in physics:
+%Stuff for physics assignment in physics:
 \newcommand{\defcourse}[1]{\def\course{#1}}
 \newcommand{\defassignnum}[1]{\def\assignnum{#1}}
 \newcommand{\startassign}{\setcounter{chapter}{\assignnum}\pagestyle{fancy}\fancyhead{}\fancyhead[LO]{Chloé Legué}\fancyhead[RO]{\course - Assignment \assignnum}}
@@ -86,7 +98,7 @@
 \newcommand{\hwq}[2]{\newpage\section{#1}\fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline}
 \newcommand{\hwsq}[3]{\refstepcounter{subquestionnumber}\noindent\textbf{Question #1 - Part \alph{subquestionnumber})}\newline\fcolorbox{redbrown}{sepia!50}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline\newline\sol{#3}\newline}
 
-% Astrosymbols:
+%Astrosymbols:
 \DeclareSymbolFont{starfontsym}{OT1}{sts}{m}{n}
 \DeclareMathSymbol{\mathSun}{\mathord}{starfontsym}{115}
 \DeclareMathSymbol{\mathMercury}{\mathord}{starfontsym}{102}
@@ -103,3 +115,6 @@
 \DeclareMathSymbol{\mathNeptune}{\mathord}{starfontsym}{71}
 \DeclareMathSymbol{\mathPluto}{\mathord}{starfontsym}{74}
 \DeclareMathSymbol{\mathvarPluto}{\mathord}{starfontsym}{72}
+
+%Cube function:
+\newcommand*\cube{\mbox{\mancube}}
