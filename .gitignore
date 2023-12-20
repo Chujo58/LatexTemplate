@@ -1,0 +1,9 @@
+*.*
+!.gitignore
+*/
+!ScriptR.pdf
+!BoldR.pdf
+!letterfonts.tex
+!macros.tex
+!preamble.tex
+!common.sty
