@@ -90,7 +90,7 @@
 %Stuff for physics assignment in physics:
 \newcommand{\defcourse}[1]{\def\course{#1}}
 \newcommand{\defassignnum}[1]{\def\assignnum{#1}}
-\newcommand{\startassign}{\setcounter{chapter}{\assignnum}\pagestyle{fancy}\fancyhead{}\fancyhead[LO]{Chloé Legué}\fancyhead[RO]{\course - Assignment \assignnum}}
+\newcommand{\startassign}[1]{\setcounter{chapter}{\assignnum}\pagestyle{fancy}\fancyhead{}\fancyhead[LO]{#1}\fancyhead[RO]{\course - Assignment \assignnum}}
 \definecolor{sepia}{RGB}{253, 243, 220}
 \definecolor{redbrown}{RGB}{96, 62, 55}
 
