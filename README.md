@@ -3,7 +3,7 @@ I have simply added a list of equations and some customs commands used in some o
 
 ## Importing the package into latex
 
-To import the common.sty, you can use `one`, `two` or `three` as a package option. This will simply let the common.sty know how far the current latex file you are working on is. (Basically how many `cd ..` should you do to reach common.sty):
+To import the common.sty, you can use `one`, `two` or `three` as a package option. This will simply let the common.sty know how far the current latex file you are working on is. (Basically how many `cd ..` should you do to reach common.sty). You can also use the argument `extra-page` to have extra pages after the end of each problem.
 
 ```
 \documentclass{report}
