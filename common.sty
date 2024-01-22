@@ -1,6 +1,13 @@
 \DeclareOption{one}{\def\import_path{..}}
 \DeclareOption{two}{\def\import_path{../..}}
 \DeclareOption{three}{\def\import_path{../../..}}
+\DeclareOption{extra-page}{
+    \newcommand{\hwq}[2]{\newpage\section{#1}\fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline}
+}
+\ifx\hwq\undefined
+    \newcommand{\hwq}[2]{\section{#1}\fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline}
+\fi
+
 \ProcessOptions\relax
 
 \usepackage[utf8]{inputenc}
@@ -95,7 +102,6 @@
 \definecolor{redbrown}{RGB}{96, 62, 55}
 
 \newcounter{subquestionnumber}[section]
-\newcommand{\hwq}[2]{\newpage\section{#1}\fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline}
 \newcommand{\hwsq}[3]{\refstepcounter{subquestionnumber}\noindent\textbf{Question #1 - Part \alph{subquestionnumber})}\newline\fcolorbox{redbrown}{sepia!50}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline\newline\sol{#3}\newline}
 
 %Astrosymbols:
