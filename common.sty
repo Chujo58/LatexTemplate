@@ -1,11 +1,66 @@
+\RequirePackage[most, many, breakable]{tcolorbox}
+\RequirePackage{xcolor}
+
+% \definecolor{lb}{RGB}{0,60,110}
+\definecolor{lb}{RGB}{14, 65, 115}
+\newtcbtheorem[number within=chapter]{Problem}{Problem}{enhanced,
+	before skip=2mm,after skip=2mm, colback=lb!5,colframe=lb!80!black,boxrule=0.5mm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+	boxed title style={frame code={
+					\path[fill=tcbcolback]
+					([yshift=-1mm,xshift=-1mm]frame.north west)
+					arc[start angle=0,end angle=180,radius=1mm]
+					([yshift=-1mm,xshift=1mm]frame.north east)
+					arc[start angle=180,end angle=0,radius=1mm];
+					\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+						middle color=tcbcolback!80!black]
+					([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+					[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+					-- (frame.south east) -- (frame.south west)
+					-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+					[sharp corners]-- cycle;
+				},interior engine=empty,
+		},
+	fonttitle=\bfseries,
+	title={#2},#1}{def}
+
+\newtcbtheorem[number within=section]{problem}{Problem}{enhanced,
+	before skip=2mm,after skip=2mm, colback=lb!5,colframe=lb!80!black!50,boxrule=0.5mm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+	boxed title style={frame code={
+					\path[fill=tcbcolback]
+					([yshift=-1mm,xshift=-1mm]frame.north west)
+					arc[start angle=0,end angle=180,radius=1mm]
+					([yshift=-1mm,xshift=1mm]frame.north east)
+					arc[start angle=180,end angle=0,radius=1mm];
+					\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+						middle color=tcbcolback!80!black]
+					([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+					[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+					-- (frame.south east) -- (frame.south west)
+					-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+					[sharp corners]-- cycle;
+				},interior engine=empty,
+		},
+	fonttitle=\bfseries,
+	title={#2},#1}{def}
+
 \DeclareOption{one}{\def\import_path{..}}
 \DeclareOption{two}{\def\import_path{../..}}
 \DeclareOption{three}{\def\import_path{../../..}}
 \DeclareOption{extra-page}{
-    \newcommand{\hwq}[2]{\newpage\section{#1}\fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline}
+    \newcommand{\hwq}[2]{
+        \newpage\section{#1}
+        \begin{Problem}[colbacktitle=lb!75!black]{#1}{}#2\end{Problem}
+        % \fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline
+    }
 }
 \ifx\hwq\undefined
-    \newcommand{\hwq}[2]{\section{#1}\fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline}
+    \newcommand{\hwq}[2]{
+        \section{#1}
+        \begin{Problem}[colbacktitle=lb!75!black]{#1}{}#2\end{Problem}
+        % \fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline
+    }
 \fi
 
 \ProcessOptions\relax
@@ -102,7 +157,10 @@
 \definecolor{redbrown}{RGB}{96, 62, 55}
 
 \newcounter{subquestionnumber}[section]
-\newcommand{\hwsq}[3]{\refstepcounter{subquestionnumber}\noindent\textbf{Question #1 - Part \alph{subquestionnumber})}\newline\fcolorbox{redbrown}{sepia!50}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline\newline\sol{#3}\newline}
+\newcommand{\hwsq}[3]{
+    \begin{problem}[colbacktitle=lb!75!black!50]{}{}#2\end{problem}\sol{#3}
+    % \refstepcounter{subquestionnumber}\noindent\textbf{Question #1 - Part \alph{subquestionnumber})}\newline\fcolorbox{redbrown}{sepia!50}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline\newline\sol{#3}\newline
+}
 
 %Astrosymbols:
 \DeclareSymbolFont{starfontsym}{OT1}{sts}{m}{n}
