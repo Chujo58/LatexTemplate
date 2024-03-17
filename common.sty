@@ -50,6 +50,8 @@
 \DeclareOption{three}{\def\import_path{../../..}}
 \DeclareOption{extra-page}{
     \newcommand{\hwq}[2]{
+        % \newpage\clearpage
+        % \addcontentsline{toc}{section}{#1}
         \newpage\section{#1}
         \begin{Problem}[colbacktitle=lb!75!black]{#1}{}#2\end{Problem}
         % \fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline
@@ -57,6 +59,7 @@
 }
 \ifx\hwq\undefined
     \newcommand{\hwq}[2]{
+        % \addcontentsline{toc}{section}{#1}
         \section{#1}
         \begin{Problem}[colbacktitle=lb!75!black]{#1}{}#2\end{Problem}
         % \fcolorbox{redbrown}{sepia}{\parbox{\textwidth}{\textcolor{redbrown}{#2}}}\newline
