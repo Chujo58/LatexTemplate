@@ -756,3 +756,26 @@
 	% \@starttoc{toc}
 }
 \makeatother
+
+%TITLEPAGE
+\def\titledist{6.85in}
+\makeatletter
+\renewcommand\maketitle{{
+    \begin{titlepage}
+        \pagenumbering{gobble}
+        \raggedleft
+        \chapter*{
+            \vspace{6in}
+            \begin{tikzpicture}[remember picture, overlay]
+                \pgftext[right,x=\titledist,y=0.2cm]{\color{doc!60}\Huge\sc\bfseries\@title};%
+                \draw[fill=doc!60,draw=doc!60] (13,-.75) rectangle (20,1);%
+                \clip (13,-.75) rectangle (20,1);
+                \pgftext[right,x=\titledist,y=0.2cm]{\color{white}\Huge\sc\bfseries\@title};%
+            \end{tikzpicture}
+        }
+        {\Large\@author}\\
+        \@date
+    \end{titlepage}
+    \pagenumbering{arabic}
+}}
+\makeatother
