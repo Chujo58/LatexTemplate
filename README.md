@@ -45,3 +45,7 @@ Now to setup the header of your pdf: (You will need to add a space after the cou
 \defassignnum{Number of the assignment}
 \startassign{Your name}
 ```
+
+## Project Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/0d37afef6c8b5e936032b6a3cb001f42f9b8ece0.svg "Repobeats analytics image")
