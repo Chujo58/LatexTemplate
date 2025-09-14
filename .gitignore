@@ -1,0 +1,10 @@
+*.*
+!common.sty
+!BoldR.pdf
+!letterfonts.tex
+!macros.tex
+!preamble.tex
+!README.md
+!ScriptR.pdf
+!.gitignore
+*/
